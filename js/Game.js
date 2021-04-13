@@ -37,12 +37,15 @@ class Game{
     play(){
         
         form.hide();
-
+        fill("blue");
+        textSize(20);
+        text("First one to score 20 will be the winner!!",280,50);
         Player.getPlayerInfo();
         image(back_img, 0, 0, 1000, 800);
         var x =100;
         var y=200;
         var index =0;
+        var disp_name=0;
         drawSprites();
 
         for(var plr in allPlayers){
@@ -62,7 +65,10 @@ class Game{
            
             // Add code to diplay the scores of both 
             // the players on the screen
-
+            textSize(20);
+            fill("white");
+            disp_name += 50;
+            text(allPlayers[plr].name + " : "+ allPlayers[plr].score,50,disp_name);
 
 
         }
@@ -94,14 +100,11 @@ class Game{
             }
             fruitGroup.add(fruits);
 
-            textSize(25);
-            fill("white");
-            text("Player 1: " + allPlayers.player1.score,50,50);
-            text("Player 2: " + allPlayers.player2.score,50,100);
+            
 
             if(player.index!==null){
                 for(var i=0; i<fruitGroup.length; i++){
-                    if(fruitGroup.get(i).isTouching(fruits)){
+                    if (fruitGroup.get(i).isTouching(players[player.index-1])) {
                         fruitGroup.get(i).destroy();
                         player.score = player.score+1;
                         player.update();
@@ -110,7 +113,7 @@ class Game{
             }
         }
 
-        if(player.score>=100){
+        if(player.score>=20){
             this.end();
         }
 

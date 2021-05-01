@@ -36,12 +36,12 @@ class Game{
     
     play(){
         
-        form.hide();
-        fill("blue");
-        textSize(20);
-        text("First one to score 20 will be the winner!!",280,50);
+        form.hide();        
         Player.getPlayerInfo();
         image(back_img, 0, 0, 1000, 800);
+        fill("red");
+        textSize(20);
+        text("First one to score 20 will be the winner!!",280,50);
         var x =100;
         var y=200;
         var index =0;
@@ -114,7 +114,11 @@ class Game{
         }
 
         if(player.score>=20){
-            this.end();
+            gameState=2;
+            basket20++;
+            player.rank=basket20;
+            player.update();
+            player.updateBasketAt20(basketFull);            
         }
 
     }
@@ -125,5 +129,18 @@ class Game{
     fill("blue");
     textSize(40);
     text("Game Over!!",350,300);
+    }
+
+    leaderboard(){
+        background(celebrateimg);
+        Player.getPlayerInfo();
+        if(allPlayers !== undefined){
+          fill("black");
+          textSize(30);
+          for(var plr in allPlayers){
+            console.log(allPlayers[plr].rank);
+            text(allPlayers[plr].rank + allPlayers[plr].name,500,200);
+          }
+        }
     }
 }

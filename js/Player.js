@@ -4,6 +4,7 @@ class Player {
         this.distance = 0;
         this.name = null;
         this.score =0;
+        this.rank=0;
     }
 
     getCount() {
@@ -35,5 +36,9 @@ class Player {
         })
     }
 
-    
+    updateBasketAt20(rank){
+        database.ref('/').update({
+            basketAt20:rank
+        })
+    }
 }

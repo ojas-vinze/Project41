@@ -13,6 +13,8 @@ var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
 var player_img;
 var player1score =0;
 var player2score =0;
+var celebrateimg;
+var basket20=0;
 
 function preload(){
   back_img = loadImage("images/jungle.jpg");
@@ -22,6 +24,7 @@ function preload(){
   fruit3_img = loadImage("images/melon2.png");
   fruit4_img = loadImage("images/orange2.png");
   fruit5_img = loadImage("images/pineapple2.png");
+  celebrateimg=loadImage("images/celebration.png");
   fruitGroup = new Group();
 }
 function setup() {
@@ -44,5 +47,8 @@ function draw() {
   }
   if (playerCount === 2) {
     game.update(1);
+  }
+  if(basket20===2){
+    game.leaderboard();
   }
 }

@@ -116,6 +116,7 @@ class Game{
         if(player.score>=20){
             gameState=2;
             basket20++;
+            basketFull++;
             player.rank=basket20;
             player.update();
             player.updateBasketAt20(basketFull);            

@@ -15,6 +15,7 @@ var player1score =0;
 var player2score =0;
 var celebrateimg;
 var basket20=0;
+var basketFull=0;
 
 function preload(){
   back_img = loadImage("images/jungle.jpg");

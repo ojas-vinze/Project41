@@ -125,23 +125,42 @@ class Game{
     }
 
     end(){
-    game.update(2);
-    clear();
-    fill("blue");
-    textSize(40);
-    text("Game Over!!",350,300);
+        form.hide();
+        image(celebrateimg,0,0,1000,800);
+
+        fill("blue");
+        textSize(70);
+        strokeWeight(6);
+        stroke("red");
+        text("Game Over!!",350,100);
+
+        strokeWeight(3);
+        stroke("black");
+        textSize(40);
+        text("And the winner is: ",350,200);
+
+        Player.getPlayerInfo();
+        if(allPlayers!==undefined){
+            fill("black");
+            textSize(30);
+            for(var plr in allPlayers){
+                if(allPlayers[plr].score===20){
+                    text(allPlayers[plr].name,500,300)
+                }
+            }
+        }
     }
 
     leaderboard(){
-        background(celebrateimg);
-        Player.getPlayerInfo();
-        if(allPlayers !== undefined){
-          fill("black");
-          textSize(30);
-          for(var plr in allPlayers){
-            console.log(allPlayers[plr].rank);
-            text(allPlayers[plr].rank + allPlayers[plr].name,500,200);
-          }
-        }
+        // background(celebrateimg);
+        // Player.getPlayerInfo();
+        // if(allPlayers !== undefined){
+        //   fill("black");
+        //   textSize(30);
+        //   for(var plr in allPlayers){
+        //     console.log(allPlayers[plr].rank);
+        //     text(allPlayers[plr].rank + allPlayers[plr].name,500,200);
+        //   }
+        // }
     }
 }
